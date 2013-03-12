@@ -1,6 +1,7 @@
 Shouter4::Application.routes.draw do
   #get "pages/show"
   root :to => 'pages#home'
+  resources :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
