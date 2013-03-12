@@ -1,4 +1,6 @@
 Shouter4::Application.routes.draw do
+  get "pages/show"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
