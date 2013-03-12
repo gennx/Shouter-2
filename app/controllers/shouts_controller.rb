@@ -2,7 +2,7 @@ class ShoutsController < ApplicationController
   # GET /shouts
   # GET /shouts.json
   def index
-    @shouts = Shout.all
+    @shouts = Shout.order("created_at DESC")
 
     respond_to do |format|
       format.html # index.html.erb
