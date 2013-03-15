@@ -26,7 +26,7 @@ group :development do
   gem "binding_of_caller"
 end
 gem 'rails-footnotes', '>= 3.7.9', :group => :development
-
+gem 'will_paginate', '~> 3.0'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
