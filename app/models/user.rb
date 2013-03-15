@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
   validates :password_digest, :presence => true, :on => :create
   validates :username, :format => {:with => /^[a-z]\w*$/i, :message => "First Character Must be a Letter"}
   validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+.)+[a-z]{2,})\Z/i
+  validates :username, :exclusion => { :in => %w(admin kyle leo)}
 end
