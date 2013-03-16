@@ -19,10 +19,15 @@
     <%= f.label :username %><br/>
 	<%= f.text_field :username%>
   </div>
+
+  <% unless params[:action] == "edit" %> 
   <div class="field">
     <%= f.label :password_digest %><br/>
 	<%= f.text_field :password_digest%>
   </div>	
+  <% end %>
+
+
   <div class="field">
     <%= f.label :profile_fg %><br/>
 	<%= f.text_field :profile_fg%>
