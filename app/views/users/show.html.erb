@@ -1,5 +1,15 @@
 <p id="notice"><%= notice %></p>
 
+<%  if @user.profile_bg && @user.profile_fg %>
+  <style type="text/css">
+    body {
+        <%= "background-color: " << @user.profile_bg << ";" %>
+        <%= "color: " << @user.profile_fg << ";" %>
+    }
+  </style>
+<% end %>
+
+
 <%= @user.username %></br>
 <%= @user.email %></br>
 <%= @user.id %></br>
