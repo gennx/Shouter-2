@@ -10,7 +10,7 @@
 <% end %>
 
 
-<u><%= @user.username %></br></u>
+<u><%= @user.username.html_safe %></br></u>
 <%= @user.email %></br>
 <%= @user.id %></br>
 
