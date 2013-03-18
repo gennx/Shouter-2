@@ -15,4 +15,30 @@
 <%= @user.id %></br>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
+
+
 <%= link_to 'Back', users_path %>
+
+<%=will_paginate @shouts %>
+<table>
+  <tr>
+	<th>Shouted at</th>
+    <th>Content</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @shouts.each do |shout| %>
+  <tr>
+	<td><%= shout_formatted_date shout%>
+    <td><%= shout.content %></td>
+    <td><%= shout.user_id %></td>
+	<td><%=time_ago_in_words shout.created_at %> ago</td>
+    <td><%= link_to 'Show', shout %></td>
+    <td><%= link_to 'Edit', edit_shout_path(shout) %></td>
+    <td><%= link_to 'Destroy', shout, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
