@@ -2,6 +2,8 @@ Shouter4::Application.routes.draw do
   get "sessions/new"
 
   get "sessions/create"
+  
+  post "sessions/create", :as => :sessions
 
   get "sessions/destroy"
 
