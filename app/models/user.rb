@@ -9,4 +9,9 @@ class User < ActiveRecord::Base
   
   mount_uploader :profile_image, ProfileImageUploader
   has_many :shouts
+  has_many :follows
+  
+  def follows?(user)
+      Follow.exists? user_id: self.id, follows_id: user.id
+  end
 end
