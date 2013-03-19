@@ -1,4 +1,10 @@
 Shouter4::Application.routes.draw do
+  get "sessions/new"
+
+  get "sessions/create"
+
+  get "sessions/destroy"
+
   #get "pages/show"
   root :to => 'pages#home'
   resources :users, :shouts
