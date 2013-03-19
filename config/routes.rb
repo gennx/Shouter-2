@@ -3,6 +3,8 @@ Shouter4::Application.routes.draw do
   root :to => 'pages#home'
   resources :users, :shouts
 
+  post :follow, to: "follows#create"
+  delete :unfollow, to: "follows#destroy"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
