@@ -6,9 +6,15 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
 
-<%= yield %>
+<body>
+	<% if flash[:notice] %>
+	      <p class="notice"><%= flash[:notice] %></p>
+	    <% end %>
+	    <% if flash[:error] %>
+	      <p class="error"><%= flash[:error] %></p>
+	<% end %>
+   <%= yield %>
 
 </body>
 </html>
