@@ -1,3 +1,4 @@
 <h1>Pages#show</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
 <%= link_to "Log out", sessions_destroy_path %>
+<br>Current user: <%= current_user.username if logged_in? %>
