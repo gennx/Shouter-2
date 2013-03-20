@@ -3,8 +3,12 @@ class ShoutsController < ApplicationController
   # GET /shouts.json
   def index
     
-    if params [:from]
+    if params[:from]
       @shouts = Shout.find_all_by-user_id(params[:from])
+    else
+      @shouts = Shout.all
+    end    
+
     @shouts = Shout.order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
 
     respond_to do |format|
@@ -17,7 +21,7 @@ class ShoutsController < ApplicationController
   # GET /shouts/1.json
   def show
     @shout = Shout.find(params[:id])
-
+  
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @shout }
