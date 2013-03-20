@@ -1,5 +1,5 @@
 Shouter4::Application.routes.draw do
-  get "sessions/new"
+  match 'login' => 'sessions#new', :as => :login
 
   get "sessions/create"
   
@@ -8,11 +8,17 @@ Shouter4::Application.routes.draw do
   get "sessions/destroy"
 
   #get "pages/show"
-  root :to => 'pages#home'
+  
+  match 'signup' => 'users#new', :as => :signup
+
   resources :users, :shouts
+  
+  
 
   post :follow, to: "follows#create"
   delete :unfollow, to: "follows#destroy"
+  
+  root :to => 'pages#home'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
