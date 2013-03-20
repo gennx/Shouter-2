@@ -2,6 +2,9 @@ class ShoutsController < ApplicationController
   # GET /shouts
   # GET /shouts.json
   def index
+    
+    if params [:from]
+      @shouts = Shout.find_all_by-user_id(params[:from])
     @shouts = Shout.order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
 
     respond_to do |format|
@@ -41,6 +44,7 @@ class ShoutsController < ApplicationController
   # POST /shouts.json
   def create
     @shout = Shout.new(params[:shout])
+    @shout.user_id = current_user.id
 
     respond_to do |format|
       if @shout.save

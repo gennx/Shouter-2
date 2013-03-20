@@ -18,6 +18,8 @@ Shouter4::Application.routes.draw do
   post :follow, to: "follows#create"
   delete :unfollow, to: "follows#destroy"
   
+  match "profiles/:id" => "users#show"
+  
   root :to => 'pages#home'
   # The priority is based upon order of creation:
   # first created -> highest priority.
