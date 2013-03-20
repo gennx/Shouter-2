@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  
+  before_filter :require_no_user, :only => [:new]
   def new
   end
 
@@ -17,5 +19,6 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to root_url, :notice => "Logged Out"
   end
- 
+  
+  
 end
