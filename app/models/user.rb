@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   validates :username, :exclusion => { :in => %w(admin kyle leo)}
   
   mount_uploader :profile_image, ProfileImageUploader
-  has_many :shouts
+  has_many :shouts, :dependent => :destroy
   has_many :follows
   
   
