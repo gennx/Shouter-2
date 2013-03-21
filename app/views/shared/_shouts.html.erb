@@ -1,4 +1,4 @@
-
+<%= will_paginate @shouts %>
 <table class = "table">
   <tr>
 	<th>Shouted at</th>
@@ -15,9 +15,12 @@
     <td><%= shout.content %></td>
     <td><%= shout.user.username %></td>
 	<td><%= time_ago_in_words shout.created_at %> ago</td>
-    <td><%= link_to 'Show', shout %></td>
-    <td><%= link_to 'Edit Shout', edit_shout_path(shout) %></td>
-    <td><%= link_to 'Delete Shout', shout, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <!--<td><%= link_to 'Show', shout %></td>-->
+		
+	<% if shout.user_id == current_user.id %>
+    	<td><%= link_to 'Edit Shout', edit_shout_path(shout) %></td>
+    	<td><%= link_to 'Delete Shout', shout, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	<% end %>
 	
   </tr>
 <% end %>
