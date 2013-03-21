@@ -1,4 +1,4 @@
-<h1>Listing shouts</h1>
+<h1>Shouts</h1>
 
 <%= render "shared/shouts" if @shouts.count > 0 %>
 
@@ -6,4 +6,4 @@
 
 <br />
 
-<%= link_to 'New Shout', new_shout_path %>
+<%= link_to 'New Shout', new_shout_path, :class => "btn" %>

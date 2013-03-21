@@ -18,14 +18,15 @@ Params User ID: <%= @user.id %></br>
 
 <% unless @current_user.id == @user.id %>
 	<% if @current_user.following?(@user)%>
-		<%= link_to "Unfollow", unfollow_path(:follow => @user.id), :method => :delete %> |
+		<%= link_to "Unfollow", unfollow_path(:follow => @user.id), :method => :delete, :class => "btn" %> 
 	<% else %>
-		<%= link_to "Follow", follow_path(:follow => @user.id), :method => :post %> |
+		<%= link_to "Follow", follow_path(:follow => @user.id), :method => :post, :class => "btn" %> 
 	<% end %>	
 <% end %>
 
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Edit Profile', edit_user_path(@user), :class => "btn" %> 
 
 <%= render "shared/shouts" %>
+
+<%= link_to 'Back', users_path, :class => "btn btn-link" %>

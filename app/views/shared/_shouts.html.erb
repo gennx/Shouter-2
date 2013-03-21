@@ -1,9 +1,9 @@
-<%=will_paginate @shouts %>
-<table>
+
+<table class = "table">
   <tr>
 	<th>Shouted at</th>
-    <th>Content</th>
-    <th>User</th>
+    <th>Shoutings</th>
+    <th>Shouter</th>
     <th></th>
     <th></th>
     <th></th>
@@ -16,8 +16,9 @@
     <td><%= shout.user.username %></td>
 	<td><%= time_ago_in_words shout.created_at %> ago</td>
     <td><%= link_to 'Show', shout %></td>
-    <td><%= link_to 'Edit', edit_shout_path(shout) %></td>
-    <td><%= link_to 'Destroy', shout, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Edit Shout', edit_shout_path(shout) %></td>
+    <td><%= link_to 'Delete Shout', shout, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	
   </tr>
 <% end %>
 </table>
