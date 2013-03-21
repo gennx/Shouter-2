@@ -3,14 +3,13 @@ class ShoutsController < ApplicationController
   # GET /shouts.json
   def index
     
-    if params[:from]
-      @shouts = Shout.find_all_by-user_id(params[:from])
+    if params[:from] == "following"
+      @follows_ids = current_user.follows.collect {|row| row.follow_id}
+      @shouts = Shout.where(:user_id => @follows_ids).order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
     else
-      @shouts = Shout.all
-    end    
-
-    @shouts = Shout.order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
-
+      @shouts = Shout.order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
+    end
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @shouts }

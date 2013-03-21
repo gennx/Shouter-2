@@ -1,4 +1,13 @@
 <h1>Pages#show</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+<h1>Streams</h1>
+	<ul>
+		<li>
+			<%= link_to "Global", shouts_path %>
+		</li>
+		<li>
+			<%= link_to "Following", shouts_path(:from => "following") %>
+		</li>
+ 	</ul>
 <%= link_to "Log out", sessions_destroy_path %>
-<br>Current user: <%= current_user.username if logged_in? %>
+<br><%= current_user.username if logged_in? %> is logged in
