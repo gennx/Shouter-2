@@ -1,6 +1,7 @@
 <h1>Listing shouts</h1>
 
-<%= render "shared/shouts" %>
+<%= render "shared/shouts" if @shouts.count > 0 %>
+
 
 
 <br />
